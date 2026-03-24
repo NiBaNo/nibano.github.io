@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rename Files Tool</title>
 
+  <!-- ZIP library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+
+  <!-- Download files library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>Rename Files Tool</h1>
+</header>
+
+<div class="container">
+
+  <!-- Select multiple files Input -->
+  <input type="file" id="files" multiple>
+
+  <br><br>
+
+  <!-- Rename prefix -->
+  <input type="text" id="prefix" placeholder="Enter prefix (e.g. file)">
+
+  <br><br>
+
+  <!-- generate Zip btn -->
+  <button onclick="renameFiles()">Rename & Download ZIP</button>
+
+  <ul id="preview"></ul>
+
+</div>
+
+<script>
+async function renameFiles() {
+
+  // Catch selected files
+  const files = document.getElementById('files').files;
+
+  // Catch written prefix
+  const prefix = document.getElementById('prefix').value;
+
+  if (!prefix) {
+    alert("Please enter a prefix");
+    return;
+  }
+
+  // Create new zip
+  const zip = new JSZip();
+
+  // Preview zone
+  const preview = document.getElementById('preview');
+  preview.innerHTML = "";
+
+  for (let i = 0; i < files.length; i++) {
+
+    const file = files[i];
+
+    // Get extension (.jpg, .png...)
+    const extension = file.name.split('.').pop();
+
+    // New name
+    const newName = `${prefix}_${i+1}.${extension}`;
+
+    // Preview
+    const li = document.createElement("li");
+    li.textContent = file.name + " → " + newName;
+    preview.appendChild(li);
+
+    // Read file content
+    const content = await file.arrayBuffer();
+
+    // New zip with content
+    zip.file(newName, content);
+  }
+
+  // Final zip
+  const zipBlob = await zip.generateAsync({ type: "blob" });
+
+  // Download zip
+  saveAs(zipBlob, "renamed_files.zip");
+}
+</script>
+
+</body>
+</html>
