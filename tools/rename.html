@@ -3,16 +3,15 @@
 <head>
   <title>Rename Files Tool</title>
 
-  <!-- ZIP -->
-  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <!-- ZIP library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
 
-  <!-- Download -->
-  <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+  <!-- Download files library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
   <link rel="stylesheet" href="../css/style.css">
 </head>
-
-<body class="tool-page">
+<body>
 
 <header>
   <h1>Rename Files Tool</h1>
@@ -20,35 +19,35 @@
 
 <div class="container">
 
-  <div class="card">
+  <!-- Input Files -->
+  <input type="file" id="files" multiple>
 
-    <label>Select files</label>
-    <input type="file" id="files" multiple>
+  <br><br>
 
-    <label>Prefix</label>
-    <input type="text" id="prefix" placeholder="e.g. file">
+  <!-- Prefix -->
+  <input type="text" id="prefix" placeholder="Enter prefix (e.g. file)">
 
-    <button onclick="renameFiles()">Rename & Download ZIP</button>
+  <br><br>
 
-    <ul id="preview"></ul>
+  <!-- Download ZIP btn -->
+  <button onclick="renameFiles()">Rename & Download ZIP</button>
 
-  </div>
+  <ul id="preview"></ul>
 
 </div>
 
 <script>
 async function renameFiles() {
 
-  // Check available files
   if (files.length === 0) {
   alert("Please upload files");
   return;
   }
 
-  // Catch selected files
+  // Add selected files
   const files = document.getElementById('files').files;
 
-  // Catch written prefix
+  // Add prefix
   const prefix = document.getElementById('prefix').value;
 
   if (!prefix) {
@@ -56,7 +55,6 @@ async function renameFiles() {
     return;
   }
 
-  // Create new zip
   const zip = new JSZip();
 
   // Preview zone
@@ -67,13 +65,12 @@ async function renameFiles() {
 
     const file = files[i];
 
-    // Get extension (.jpg, .png...)
+    // (.jpg, .png...)
     const extension = file.name.split('.').pop();
 
     // New name
     const newName = `${prefix}_${i+1}.${extension}`;
 
-    // Preview
     const li = document.createElement("li");
     li.textContent = file.name + " → " + newName;
     preview.appendChild(li);
@@ -81,14 +78,14 @@ async function renameFiles() {
     // Read file content
     const content = await file.arrayBuffer();
 
-    // New zip with content
+    // Add renamed files to zip
     zip.file(newName, content);
   }
 
-  // Final zip
+  // Generate final ZIP
   const zipBlob = await zip.generateAsync({ type: "blob" });
 
-  // Download zip
+  // Download ZIP
   saveAs(zipBlob, "renamed_files.zip");
 }
 </script>
