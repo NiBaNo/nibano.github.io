@@ -39,6 +39,12 @@
 <script>
 async function renameFiles() {
 
+  // Check available files
+  if (files.length === 0) {
+  alert("Please upload files");
+  return;
+  }
+
   // Catch selected files
   const files = document.getElementById('files').files;
 
