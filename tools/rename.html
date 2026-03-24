@@ -1,5 +1,19 @@
 <!DOCTYPE html>
+<html>
+<head>
+  <title>Rename Files Tool</title>
+
+  <!-- ZIP -->
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+
+  <!-- Download -->
+  <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
 <body class="tool-page">
+
 <header>
   <h1>Rename Files Tool</h1>
 </header>
@@ -19,29 +33,6 @@
     <ul id="preview"></ul>
 
   </div>
-</div>
-</body>
-
-<header>
-  <h1>Rename Files Tool</h1>
-</header>
-
-<div class="container">
-
-  <!-- Select multiple files Input -->
-  <input type="file" id="files" multiple>
-
-  <br><br>
-
-  <!-- Rename prefix -->
-  <input type="text" id="prefix" placeholder="Enter prefix (e.g. file)">
-
-  <br><br>
-
-  <!-- generate Zip btn -->
-  <button onclick="renameFiles()">Rename & Download ZIP</button>
-
-  <ul id="preview"></ul>
 
 </div>
 
