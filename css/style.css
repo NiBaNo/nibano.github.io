@@ -23,7 +23,7 @@ header p {
   color: #ccc;
 }
 
-/* CONTAINER */
+/* CONTAINER BASE */
 .container {
   margin: 40px auto;
   padding: 20px;
@@ -42,9 +42,9 @@ header p {
   box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-/* TOOL PAGE */
+/* TOOL PAGE (compacta) */
 .tool-page .container {
-  max-width: 600px;
+  max-width: 500px;
 }
 
 /* CARD */
@@ -53,6 +53,17 @@ header p {
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* LABELS */
+label {
+  display: block;
+  text-align: left;
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: #666;
 }
 
 /* INPUTS */
@@ -60,17 +71,22 @@ input[type="file"],
 input[type="text"] {
   width: 100%;
   padding: 12px;
-  margin-top: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
   border-radius: 8px;
   border: 1px solid #ddd;
   font-size: 14px;
+  transition: 0.2s;
 }
 
-/* BUTTON */
+input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* BUTTON (no gegant) */
 button {
-  width: 100%;
-  padding: 12px;
+  width: auto;
+  padding: 12px 22px;
   background: #007bff;
   border: none;
   color: white;
@@ -84,7 +100,7 @@ button:hover {
   background: #0056b3;
 }
 
-/* LINK BUTTON */
+/* LINK BUTTON (HOME) */
 a.button {
   display: inline-block;
   padding: 10px 15px;
@@ -104,6 +120,7 @@ ul {
   margin-top: 20px;
   padding: 0;
   list-style: none;
+  text-align: left;
 }
 
 li {
@@ -111,5 +128,5 @@ li {
   padding: 10px;
   border-radius: 6px;
   margin-bottom: 8px;
-  font-size: 14px;
+  font-size: 13px;
 }
