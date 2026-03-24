@@ -11,7 +11,8 @@
 
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+
+<body class="tool-page">
 
 <header>
   <h1>Rename Files Tool</h1>
@@ -19,33 +20,32 @@
 
 <div class="container">
 
-  <!-- Input Files -->
-  <input type="file" id="files" multiple>
+  <div class="card">
 
-  <br><br>
+    <label>Select files</label>
+    <input type="file" id="files" multiple>
 
-  <!-- Prefix -->
-  <input type="text" id="prefix" placeholder="Enter prefix (e.g. file)">
+    <label>Prefix</label>
+    <input type="text" id="prefix" placeholder="e.g. file">
 
-  <br><br>
+    <button onclick="renameFiles()">Rename & Download ZIP</button>
 
-  <!-- Download ZIP btn -->
-  <button onclick="renameFiles()">Rename & Download ZIP</button>
+    <ul id="preview"></ul>
 
-  <ul id="preview"></ul>
+  </div>
 
 </div>
 
 <script>
 async function renameFiles() {
 
-  if (files.length === 0) {
-  alert("Please upload files");
-  return;
-  }
-
   // Add selected files
   const files = document.getElementById('files').files;
+
+  if (files.length === 0) {
+    alert("Please upload files");
+    return;
+  }
 
   // Add prefix
   const prefix = document.getElementById('prefix').value;
