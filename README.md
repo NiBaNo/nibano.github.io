@@ -1,4 +1,4 @@
-# 🚀 NiBaNo Tools
+# 🚀 NBN Tools by NiBaNo
 
 **Simple online tools for everyone.**  
 Fast, minimal and designed to just work.
