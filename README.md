@@ -52,13 +52,6 @@ Just simple tools that solve real problems.
 
 ---
 
-## ☕ Support
-
-If you find this useful, consider supporting:
-
-
----
-
 ## 📜 License
 
 MIT License
