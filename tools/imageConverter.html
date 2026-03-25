@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Converter</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="tool-page">
+
+<header class="tool-header">
+  <a href="../index.html" class="logo">NBN</a>
+  <h1>Image Converter</h1>
+</header>
+
+<div class="container">
+
+  <div class="card">
+
+    <div class="input-header">
+      <label>Select images</label>
+    </div>
+
+    <div class="file-input">
+      <label for="files" class="file-btn">Choose Files</label>
+      <span id="file-name">No files selected</span>
+      <input type="file" id="files" multiple accept="image/*">
+    </div>
+
+    <label>Prefix</label>
+    <input type="text" id="prefix" placeholder="e.g. image">
+
+    <label></label>
+
+    <label>Output format</label>
+    <div class="custom-select" onclick="toggleDropdown()">
+      <div id="selected">JPG</div>
+      <div class="arrow">
+        <svg width="14" height="14" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6" fill="none" stroke="white" stroke-width="2"/>
+        </svg>
+      </div>
+
+      <div id="options" class="options">
+        <div onclick="selectFormat('image/jpeg', 'JPG', event)">JPG</div>
+        <div onclick="selectFormat('image/png', 'PNG', event)">PNG</div>
+        <div onclick="selectFormat('image/webp', 'WEBP', event)">WEBP</div>
+      </div>
+    </div>
+
+    <p class="tool-hint">
+      Convert images to a new format.<br>
+      Output: <strong>image_1.jpg, image_2.jpg...</strong>
+    </p>
+
+    <button onclick="convertImages()">Convert & Download ZIP</button>
+
+    <div class="secondary-actions">
+      <button class="reset-btn" onclick="resetTool()">Remove Selected Files</button>
+    </div>
+
+    <ul id="preview"></ul>
+
+  </div>
+
+</div>
+
+<script>
+
+  async function convertImages() {
+
+    const files = document.getElementById('files').files;
+    const prefix = document.getElementById('prefix').value;
+
+    const format = selectedFormat;
+    const ext = format.split('/')[1];
+
+    if (files.length === 0) {
+      alert("Please upload images");
+      return;
+    }
+
+    if (!prefix) {
+      alert("Please enter a prefix");
+      return;
+    }
+
+    const zip = new JSZip();
+    const preview = document.getElementById('preview');
+    preview.innerHTML = "";
+
+    for (let i = 0; i < files.length; i++) {
+
+      const file = files[i];
+
+      const img = new Image();
+      const url = URL.createObjectURL(file);
+
+      await new Promise(resolve => {
+        img.onload = resolve;
+        img.src = url;
+      });
+
+      const canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+
+      const newName = `${prefix}_${i+1}.${ext}`;
+
+      const li = document.createElement("li");
+      li.innerHTML = `
+      <span style="opacity:0.6">${file.name}</span>
+      <span class="arrow-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24">
+          <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span style="color:#aab6ff">${newName}</span>
+    `;
+      preview.appendChild(li);
+
+      const blob = await new Promise(resolve =>
+              canvas.toBlob(resolve, format, 0.9)
+      );
+
+      zip.file(newName, blob);
+
+      URL.revokeObjectURL(url);
+    }
+
+    const zipBlob = await zip.generateAsync({ type: "blob" });
+    saveAs(zipBlob, "converted_images.zip");
+  }
+
+  document.getElementById("files").addEventListener("change", function() {
+    const files = this.files;
+    const text = files.length > 0
+            ? `${files.length} file(s) selected`
+            : "No files selected";
+
+    document.getElementById("file-name").textContent = text;
+  });
+
+  function resetTool() {
+    document.getElementById("files").value = "";
+    document.getElementById("prefix").value = "";
+    document.getElementById("preview").innerHTML = "";
+    document.getElementById("file-name").textContent = "No files selected";
+  }
+
+  let selectedFormat = "image/jpeg";
+
+  function toggleDropdown() {
+    const options = document.getElementById("options");
+    options.style.display = options.style.display === "block" ? "none" : "block";
+  }
+
+  function selectFormat(value, label) {
+    event.stopPropagation();
+    selectedFormat = value;
+    document.getElementById("selected").textContent = label;
+    document.getElementById("options").style.display = "none";
+  }
+
+  document.addEventListener("click", function(e) {
+    const dropdown = document.querySelector(".custom-select");
+    const options = document.getElementById("options");
+
+    if (!dropdown.contains(e.target)) {
+      options.style.display = "none";
+    }
+  });
+
+</script>
+
+</body>
+</html>

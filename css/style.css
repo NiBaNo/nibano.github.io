@@ -169,10 +169,14 @@ header p {
 /* HOME PAGE */
 .home .container {
   min-height: 75vh;
-  max-width: 1100px;
+  max-width: 700px;
+
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  gap: 25px;
 }
 
 .tool {
@@ -248,10 +252,29 @@ header p {
 }
 
 .tool:hover {
-  transform: translateY(-4px);
+  transform: scale(1.04);
+  border: 1px solid rgba(255,255,255,0.2);
+
   box-shadow:
-          0 20px 60px rgba(0,0,0,0.5),
-          inset 0 1px 0 rgba(255,255,255,0.15);
+          0 25px 70px rgba(0,0,0,0.6),
+          inset 0 1px 0 rgba(255,255,255,0.2);
+
+  z-index: 2;
+}
+
+.tool:first-child {
+  transform: scale(1.03);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.tool:not(:first-child) {
+  opacity: 0.85;
+}
+
+.container:hover .tool:not(:hover) {
+  transform: scale(0.97);
+  opacity: 0.7;
+  filter: blur(1px);
 }
 
 /* TOOL PAGE */
@@ -502,4 +525,93 @@ li {
 
 li:hover {
   background: rgba(255,255,255,0.12);
+}
+
+select {
+  width: 100%;
+  padding: 12px;
+
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.15);
+
+  background: rgba(255,255,255,0.08);
+  color: white;
+
+  font-size: 14px;
+  margin-bottom: 15px;
+
+  appearance: none; /* clau */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  cursor: pointer;
+}
+
+.custom-select {
+  position: relative;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.08);
+  color: white;
+  cursor: pointer;
+}
+
+.custom-select .arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.6;
+}
+
+.options {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+
+  background: linear-gradient(
+          180deg,
+          rgba(30,20,50,0.85),
+          rgba(20,15,35,0.85)
+  );
+
+  backdrop-filter: blur(25px) saturate(140%);
+
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+
+  box-shadow:
+          0 20px 60px rgba(0,0,0,0.5);
+
+  overflow: hidden;
+}
+
+
+.options div {
+  padding: 10px;
+  color: rgba(255,255,255,0.8);
+  transition: all 0.2s ease;
+}
+
+.options div:hover {
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.arrow-icon {
+  display: flex;
+  align-items: center;
+  opacity: 0.6;
 }
