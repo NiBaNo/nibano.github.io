@@ -7,31 +7,98 @@
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  background: #f4f6f8;
   color: #333;
+
+  background-image: url('../assets/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  animation: bgMove 30s ease infinite;
+}
+
+/* OVERLAY  */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: radial-gradient(
+          circle at center,
+          rgba(0,0,0,0.2) 0%,
+          rgba(0,0,0,0.55) 45%,
+          rgba(0,0,0,0.9) 100%
+  );
+
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: radial-gradient(
+          circle at 60% 65%, /* Position circle */
+          rgba(255,255,255,0.2) 0%,
+          rgba(255,255,255,0.08) 8%,
+          rgba(255,255,255,0.04) 15%,
+          rgba(255,255,255,0.015) 22%,
+          transparent 25%
+  );
+
+  animation: glowPulse 15s ease-in-out infinite;
+
+  z-index: -1;
+}
+
+@keyframes glowPulse {
+  0%   { opacity: 0.25; }
+  50%  { opacity: 0.5; }
+  100% { opacity: 0.25; }
 }
 
 /* HEADER */
 header {
-  background: #111;
-  color: white;
-  padding: 25px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+
+  padding: 18px 20px;
   text-align: center;
 }
 
+/* Title */
 header h1 {
   margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
+/* Subtitle */
 header p {
-  margin: 5px 0 0;
-  font-size: 14px;
-  color: #ccc;
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
 }
 
 /* CONTAINER */
 .container {
-  margin: 40px auto;
+  margin: 80px auto;
   padding: 20px;
 }
 
@@ -41,11 +108,12 @@ header p {
 }
 
 .tool {
-  background: white;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
   margin-top: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 /* TOOL PAGE */
@@ -55,13 +123,14 @@ header p {
 
 /* CARD */
 .card {
-  background: white;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
   padding: 35px;
   border-radius: 14px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
   margin-top: 50px;
   text-align: left;
-  border: 1px solid #eee;
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
 /* LABELS */
@@ -82,7 +151,7 @@ input[type="text"] {
   border-radius: 10px;
   border: 1px solid #ddd;
   font-size: 14px;
-  background: #fafafa;
+  background: rgba(255,255,255,0.85);
   transition: 0.2s;
 }
 
@@ -134,7 +203,7 @@ ul {
 }
 
 li {
-  background: #f1f3f5;
+  background: rgba(255,255,255,0.85);
   padding: 10px;
   border-radius: 6px;
   margin-bottom: 8px;
