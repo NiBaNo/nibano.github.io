@@ -615,3 +615,87 @@ select {
   align-items: center;
   opacity: 0.6;
 }
+
+.converter-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* container */
+.converter-visual {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* boxes */
+.format-box {
+  padding: 6px 10px;
+  border-radius: 6px;
+
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+
+  transition: all 0.3s ease;
+}
+
+/* arrows */
+.arrow {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+}
+
+/* Animation */
+@keyframes highlight {
+  0%, 100% {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.6);
+    box-shadow: none;
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  15% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  20%, 30% {
+    background: linear-gradient(135deg, #4f8cff, #6a5cff);
+    color: white;
+    box-shadow: 0 0 14px rgba(100,120,255,0.7);
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+
+  50%, 100% {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.6);
+    box-shadow: none;
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}
+
+/* delays per cada format */
+.format-box:nth-child(1) {
+  animation: highlight 9s ease-in-out infinite;
+}
+
+.format-box:nth-child(3) {
+  animation: highlight 9s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+.format-box:nth-child(5) {
+  animation: highlight 9s ease-in-out infinite;
+  animation-delay: 6s;
+}
