@@ -73,22 +73,24 @@ header {
   width: 100%;
   z-index: 10;
 
-  background: rgba(10, 10, 20, 0.4);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  height: 60px;
 
-  padding: 16px 20px;
-  text-align: center;
+  background: rgba(10, 10, 20, 0.25);
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 header h1 {
-  margin: 0;
-  font-size: 26px;
+  font-size: 16px;
   font-weight: 600;
+  letter-spacing: 1.5px;
 
-  background: linear-gradient(90deg, #ffffff, #b8c6ff);
+  background: linear-gradient(90deg, #ffffff, #aab6ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -101,7 +103,7 @@ header p {
 
 /* CONTAINER */
 .container {
-  margin: 120px auto 80px;
+  margin: 100px auto 80px;
 }
 
 /* HOME PAGE */
