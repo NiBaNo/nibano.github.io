@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Compress Images Online - Reduce Image Size Free</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../../assets/favicon.png">
+
+  <meta name="description" content="Compress images online and reduce file size instantly. Optimize JPG, PNG and WEBP images with adjustable quality. Free bulk image compressor.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://nibano.github.io/tools/image-compressor/">
+
+  <meta property="og:title" content="Image Compressor Online - Reduce Image Size Free">
+  <meta property="og:description" content="Compress images instantly and reduce file size. Fast, free and easy to use image compressor.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nibano.github.io/tools/image-compressor/">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0VHTW47Y7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V0VHTW47Y7');
+  </script>
+
+</head>
+
+<body class="tool-page">
+
+<header class="tool-header">
+  <a href="../../index.html" class="logo">NBN Tools</a>
+  <h1>Image Compressor Online</h1>
+</header>
+
+<div class="container">
+
+  <div class="card">
+
+    <div class="input-header">
+      <label>Select images</label>
+    </div>
+
+    <div class="file-input">
+      <label for="files" class="file-btn">Choose Files</label>
+      <span id="file-name">No files selected</span>
+      <input type="file" id="files" multiple accept="image/*">
+    </div>
+
+    <label>Prefix</label>
+    <input type="text" id="prefix" placeholder="e.g. image">
+
+    <label>Compression quality</label>
+    <input type="range" id="quality" min="0.1" max="1" step="0.1" value="0.7">
+    <p class="tool-hint">Lower = smaller size, higher = better quality</p>
+
+    <p class="tool-hint">
+        In higher quality, if compression does not reduce file size, the original file will be kept.
+    </p>
+
+    <p class="tool-hint">
+      Compress images and reduce file size.<br>
+      Output: <strong>image_1.jpg, image_2.jpg...</strong>
+    </p>
+
+    <button onclick="compressImages()">Compress & Download ZIP</button>
+
+    <div class="secondary-actions">
+      <button class="reset-btn" onclick="resetTool()">Remove Selected Files</button>
+    </div>
+
+    <ul id="preview"></ul>
+
+  </div>
+
+</div>
+
+<div class="seo-content">
+  <h2>Compress Images Online Easily</h2>
+  <p>
+    Reduce image file size instantly with this free image compressor. Upload your images,
+    adjust compression quality and download optimized files as a ZIP. No installation required.
+  </p>
+
+  <h2>Reduce Image Size Without Losing Quality</h2>
+  <p>
+    This tool helps you optimize images for web, improve loading speed and save storage space.
+    Supports JPG, PNG and WEBP formats.
+  </p>
+
+  <p>
+    Try also our <a href="/tools/image-converter/">image converter</a>.
+  </p>
+</div>
+
+<script>
+
+async function compressImages() {
+
+  const files = document.getElementById('files').files;
+  const prefix = document.getElementById('prefix').value;
+  const quality = parseFloat(document.getElementById('quality').value);
+
+  if (files.length === 0) {
+    alert("Please upload images");
+    return;
+  }
+
+  if (!prefix) {
+    alert("Please enter a prefix");
+    return;
+  }
+
+  const zip = new JSZip();
+  const preview = document.getElementById('preview');
+  preview.innerHTML = "";
+
+  for (let i = 0; i < files.length; i++) {
+
+    const file = files[i];
+
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+
+    await new Promise(resolve => {
+      img.onload = resolve;
+      img.src = url;
+    });
+
+    const canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+
+    const newName = `${prefix}_${i+1}.jpg`;
+
+    const li = document.createElement("li");
+
+    const blob = await new Promise(resolve =>
+      canvas.toBlob(resolve, "image/jpeg", quality)
+    );
+
+    if (blob.size > file.size) {
+      // keep original
+      zip.file(file.name, file);
+
+      li.innerHTML = `
+        <span style="opacity:0.6">${file.name}</span>
+        <span style="color:#ff6b6b">(kept original  - compression not beneficial)</span>
+      `;
+    } else {
+      // use compressed one
+      zip.file(newName, blob);
+
+      li.innerHTML = `
+        <span style="opacity:0.6">${file.name}</span>
+        <span class="arrow-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24">
+            <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </span>
+        <span style="color:#aab6ff">${newName}</span>
+      `;
+    }
+
+    preview.appendChild(li);
+    URL.revokeObjectURL(url);
+  }
+
+  // TRACK EVENT
+  gtag('event', 'use_tool', { tool: 'image_compressor' });
+
+  const zipBlob = await zip.generateAsync({ type: "blob" });
+  saveAs(zipBlob, "compressed_images.zip");
+}
+
+document.getElementById("files").addEventListener("change", function() {
+  const files = this.files;
+  const text = files.length > 0
+          ? `${files.length} file(s) selected`
+          : "No files selected";
+
+  document.getElementById("file-name").textContent = text;
+});
+
+function resetTool() {
+  document.getElementById("files").value = "";
+  document.getElementById("prefix").value = "";
+  document.getElementById("preview").innerHTML = "";
+  document.getElementById("file-name").textContent = "No files selected";
+}
+
+</script>
+
+</body>
+</html>
