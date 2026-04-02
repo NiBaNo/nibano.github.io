@@ -916,7 +916,7 @@ select {
   justify-content: center;
 
   border-radius: 6px;
-  font-size: 11px;
+  font-size: 13px;
 
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.12);
@@ -934,4 +934,67 @@ select {
   40%  { transform: rotateY(180deg); }
   60%  { transform: rotateY(180deg); }
   100% { transform: rotateY(360deg); }
+}
+
+/* PDF MERGE VISUAL */
+.merge-visual {
+  position: relative;
+  width: 120px;
+  height: 60px;
+}
+
+.pdf-box {
+  position: absolute;
+  padding: 8px 12px;
+  border-radius: 6px;
+  max-width: 50px;
+
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+
+  transition: all 0.4s ease;
+}
+
+/* initial positions */
+.pdf-box.left { left: 0; top: 10px; animation: mergeLeft 4s infinite; }
+.pdf-box.right { right: 0; top: 10px; animation: mergeRight 4s infinite; }
+.pdf-box.result { left: 50%; top: 10px; transform: translateX(-50%) scale(0); }
+
+/* animation */
+@keyframes mergeLeft {
+  0% { left: 0; opacity: 1; }
+  40% { transform: translateX(35px); opacity: 1; }
+  50% { opacity: 0; }
+  100% { left: 0; opacity: 1; }
+}
+
+@keyframes mergeRight {
+  0% { right: 0; opacity: 1; }
+  40% { transform: translateX(-35px); opacity: 1; }
+  50% { opacity: 0; }
+  100% { right: 0; opacity: 1; }
+}
+
+.pdf-box.result {
+  animation: mergeResult 4s infinite;
+}
+
+@keyframes mergeResult {
+  0%, 40% {
+    transform: translateX(-50%) scale(0);
+    opacity: 0;
+  }
+  50%, 60% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+    background: linear-gradient(135deg, #4f8cff, #6a5cff);
+    color: white;
+  }
+  100% {
+    transform: translateX(-50%) scale(0);
+    opacity: 0;
+  }
 }
