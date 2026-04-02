@@ -30,11 +30,45 @@
 
 </head>
 
+<!-- Search Bar -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('search');
+    const tools = document.querySelectorAll('.tool');
+    const noResults = document.getElementById('no-results');
+
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+      let visibleCount = 0;
+
+      tools.forEach(tool => {
+        const text = tool.innerText.toLowerCase();
+        const match = text.includes(query);
+
+        tool.style.display = match ? 'flex' : 'none';
+        if (match) visibleCount++;
+      });
+
+      // No Tools found
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    });
+  });
+</script>
+
 <body class="home">
 
 <h1 style="display:none;">Free Online Tools for Everyday Tasks</h1>
 
-<div class="logo">NBN Tools </div>
+<div class="top-bar">
+  <div class="logo">NBN Tools</div>
+
+  <input
+    type="text"
+    id="search"
+    placeholder="Search tools..."
+    autocomplete="off"
+  >
+</div>
 
 <div class="container">
 
@@ -148,6 +182,10 @@
     </div>
   </div>
 
+</div>
+
+<div id="no-results" style="display:none; text-align:center; margin-top:40px; color:rgba(255,255,255,0.6);">
+  No tools found
 </div>
 
 <div class="seo-content">
