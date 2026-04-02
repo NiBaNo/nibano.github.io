@@ -1,57 +1,93 @@
-# 🚀 NBN Tools by NiBaNo
+# 🚀 NBN Tools - Free Online Tools (Fast & Simple)
 
-**Simple online tools for everyone.**  
-Fast, minimal and designed to just work.
+A collection of **free online tools** for everyday tasks.  
+Everything runs **locally in your browser** — no uploads, no accounts, no tracking.
+
+👉 **Live demo:** https://nibano.github.io/
 
 ---
 
-## 🛠️ Available Tools
+## 🧰 Available Tools
 
 ### 📂 Rename Files
-Rename multiple files instantly with a custom prefix.
+Batch rename multiple files instantly.
 
-- Batch rename
-- Clean naming structure
-- Instant ZIP download
+- Add custom prefixes
+- Clean file naming
+- Download as ZIP
 
 ---
 
 ### 🖼️ Image Converter
-Convert images to different formats in seconds.
+Convert images between formats.
 
-- JPG, PNG, WEBP support
-- Fast browser-based conversion
-- No uploads, fully local
-
----
-
-## 🚧 More in construction
-
-New tools are coming soon:
-
-- 📦 Image Compressor  
-- 📄 PDF Tools  
-- 🔤 Text Utilities  
-- ⚡ More productivity tools  
+- JPG, PNG, WEBP
+- Fast and local (no server)
+- Drag & drop ready
 
 ---
 
-## 🌐 Live Demo
+### 🗜️ Image Compressor
+Reduce image file size without losing quality.
 
-👉 https://nibano.github.io/
+- Optimize images quickly
+- Fully client-side
+- No uploads
 
 ---
 
-## 💡 Philosophy
+### 📐 Image Resizer
+Resize images to custom dimensions.
 
-- No accounts  
-- No tracking  
-- No unnecessary complexity  
+- Set width & height
+- Bulk processing
+- Instant download image
 
-Just simple tools that solve real problems.
+---
+
+### 📄 Image to PDF
+Convert multiple images into a single PDF.
+
+- Drag & drop reorder
+- Custom file name
+- Fast PDF generation
+
+---
+
+## 🔜 Coming Next
+
+- PDF Merge  
+- PDF to Image  
+- Text tools  
+- More utilities  
+
+---
+
+## ⚡ Why NBN Tools?
+
+- ✅ 100% free  
+- ✅ No sign-up  
+- ✅ No data sent to servers  
+- ✅ Works instantly  
+
+Built for speed and simplicity.
+
+---
+
+## 🧠 Tech
+
+- Vanilla JavaScript
+- HTML + CSS
+- Runs entirely in the browser
+
+---
+
+## 📈 Keywords (SEO)
+
+image to pdf online, compress image online, resize image, convert jpg to png, batch rename files, free online tools
 
 ---
 
 ## 📜 License
 
-MIT License
+MIT
