@@ -860,3 +860,31 @@ select {
   border-color: #6a5cff;
   box-shadow: 0 0 0 2px rgba(106,92,255,0.2);
 }
+
+.pdf-visual {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.img-box,
+.pdf-box {
+  padding: 6px 10px;
+  border-radius: 6px;
+
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+}
+
+/* animació */
+@keyframes pdfFlow {
+  0%, 100% { opacity: 0.5; }
+  30% { opacity: 1; transform: scale(1.05); }
+}
+
+.img-box:nth-child(1) { animation: pdfFlow 6s infinite; }
+.img-box:nth-child(3) { animation: pdfFlow 6s infinite 2s; }
+.pdf-box { animation: pdfFlow 6s infinite 4s; }
