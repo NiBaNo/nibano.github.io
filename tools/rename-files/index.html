@@ -9,13 +9,13 @@
   <!-- Download files library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../../css/style.css">
 </head>
 
 <body class="tool-page">
 
 <header class="tool-header">
-  <a href="../index.html" class="logo">NBN Tools</a>
+  <a href="../../index.html" class="logo">NBN Tools</a>
   <h1>Rename Files Tool</h1>
 </header>
 
@@ -88,7 +88,7 @@ async function renameFiles() {
     const newName = `${prefix}_${i+1}.${extension}`;
 
     const li = document.createElement("li");
-    //li.textContent = file.name + " --> " + newName;
+
     li.innerHTML = `
       <span style="opacity:0.6">${file.name}</span>
       <span class="arrow-icon">
