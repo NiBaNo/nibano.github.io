@@ -20,6 +20,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
   <link rel="stylesheet" href="../../css/style.css">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0VHTW47Y7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-V0VHTW47Y7');
+  </script>
+
 </head>
 
 <body class="tool-page">
@@ -167,6 +178,10 @@
       URL.revokeObjectURL(url);
     }
 
+    // TRACK EVENT (GA)
+    gtag('event', 'use_tool', {tool: 'image_converter'});
+
+    // Gen .zip
     const zipBlob = await zip.generateAsync({ type: "blob" });
     saveAs(zipBlob, "converted_images.zip");
   }
