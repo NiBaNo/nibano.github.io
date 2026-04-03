@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://nibano.github.io/</loc>
+  </url>
+
+  <url>
+    <loc>https://nibano.github.io/tools/rename-files/</loc>
+  </url>
+
+  <url>
+    <loc>https://nibano.github.io/tools/image-converter/</loc>
+  </url>
+
+  <url>
+    <loc>https://nibano.github.io/tools/image-compressor/</loc>
+  </url>
+
+  <url>
+    <loc>https://nibano.github.io/tools/image-resizer/</loc>
+  </url>
+
+  <url>
+    <loc>https://nibano.github.io/tools/image-to-pdf/</loc>
+  </url>
+
+  <url>
+    <loc>https://nibano.github.io/tools/pdf-merge/</loc>
+  </url>
+
+</urlset>
