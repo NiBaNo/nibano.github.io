@@ -886,6 +886,51 @@ select {
   box-shadow: 0 0 0 2px rgba(106,92,255,0.2);
 }
 
+@media (max-width: 600px) {
+
+  .container {
+    margin-top: 140px; 
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+  }
+
+  .top-bar .logo {
+    position: static;
+    left: auto;
+    width: 100%;
+    text-align: center;
+  }
+
+  .search {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .tool-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .tool-header .logo {
+    position: static;   
+    margin-top: 15px;
+  }
+
+  .tool-header h1 {
+    font-size: 20px;
+  }
+
+}
+
 .pdf-visual {
   display: flex;
   align-items: center;
