@@ -41,7 +41,7 @@ Resize images to custom dimensions.
 
 - Set width & height
 - Bulk processing
-- Instant download image
+- Instant download
 
 ---
 
@@ -54,12 +54,13 @@ Convert multiple images into a single PDF.
 
 ---
 
-## 🔜 Coming Next
+### 📑 PDF Merge
+Combine multiple PDF files into one.
 
-- PDF Merge  
-- PDF to Image  
-- Text tools  
-- More utilities  
+- Drag & drop reorder
+- Merge instantly
+- Custom file name
+- 100% local processing
 
 ---
 
@@ -69,8 +70,7 @@ Convert multiple images into a single PDF.
 - ✅ No sign-up  
 - ✅ No data sent to servers  
 - ✅ Works instantly  
-
-Built for speed and simplicity.
+- ✅ Privacy-first (everything runs locally)
 
 ---
 
@@ -78,13 +78,13 @@ Built for speed and simplicity.
 
 - Vanilla JavaScript
 - HTML + CSS
-- Runs entirely in the browser
+- Client-side only (no backend)
 
 ---
 
 ## 📈 Keywords (SEO)
 
-image to pdf online, compress image online, resize image, convert jpg to png, batch rename files, free online tools
+image to pdf online, merge pdf online, compress image online, resize image, convert jpg to png, batch rename files, free online tools
 
 ---
 
