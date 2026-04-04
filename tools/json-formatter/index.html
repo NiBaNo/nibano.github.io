@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>JSON Formatter Online - Format, Minify & Validate JSON</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../../assets/favicon.png">
+
+  <meta name="description" content="Format, validate and minify JSON instantly. Detect errors with clear messages. Free online JSON formatter.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://nibano.github.io/tools/json-formatter/">
+
+  <meta property="og:title" content="JSON Formatter Online">
+  <meta property="og:description" content="Beautify, minify and validate JSON instantly. Fast and fully local.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nibano.github.io/tools/json-formatter/">
+
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    textarea, pre {
+      width: 100%;
+      max-width: 100%;
+      overflow: auto;
+      white-space: pre;
+      word-wrap: normal;
+      font-weight: bold;
+    }
+
+    #output {
+      max-height: 300px;
+      overflow: auto;
+      background: rgba(0,0,0,0.4);
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+
+    #status {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #aab6ff;
+      font-weight: bold;
+    }
+
+    #error {
+      margin-top: 10px;
+      color: #ff6b6b;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+
+</head>
+
+<body class="tool-page">
+
+<header class="tool-header">
+  <a href="../../index.html" class="logo">NBN Tools</a>
+  <h1>JSON Formatter</h1>
+</header>
+
+<div class="container">
+  <div class="card">
+
+    <div class="tool-seo">
+      <h1>JSON Formatter Online</h1>
+      <p>
+        Format, validate and minify JSON instantly. Detect errors with precise messages.
+      </p>
+      <p>
+        Everything runs locally in your browser. No uploads, no data sent to servers.
+      </p>
+    </div>
+
+    <label>Input JSON</label>
+    <textarea id="input" placeholder='Paste JSON here... e.g. {"name":"John","age":30}'></textarea>
+
+    <div style="display:flex; gap:10px; margin-top:10px;">
+      <button id="formatBtn">Format</button>
+      <button id="minifyBtn">Minify</button>
+      <button id="copyBtn" class="hidden">Copy</button>
+    </div>
+
+    <div id="status"></div>
+    <div id="error"></div>
+
+    <label style="margin-top:20px;">Output</label>
+    <pre id="output"></pre>
+
+  </div>
+</div>
+
+<div class="seo-content">
+  <h2>Format JSON Easily</h2>
+  <p>
+    Beautify JSON for readability and debugging. Ideal for developers working with APIs and structured data.
+  </p>
+
+  <h2>Validate and Minify JSON</h2>
+  <p>
+    Detect syntax errors and compress JSON for efficient usage in production environments.
+  </p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
