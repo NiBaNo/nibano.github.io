@@ -6,6 +6,18 @@
   </url>
 
   <url>
+    <loc>https://nibano.github.io/tools/json-formatter/</loc>
+  </url>
+
+  <url>
+    <loc>https://nibano.github.io/tools/password-generator/</loc>
+  </url>
+
+  <url>
+    <loc>https://nibano.github.io/tools/pdf-merge/</loc>
+  </url>
+
+  <url>
     <loc>https://nibano.github.io/tools/rename-files/</loc>
   </url>
 
@@ -23,10 +35,6 @@
 
   <url>
     <loc>https://nibano.github.io/tools/image-to-pdf/</loc>
-  </url>
-
-  <url>
-    <loc>https://nibano.github.io/tools/pdf-merge/</loc>
   </url>
 
 </urlset>
