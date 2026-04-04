@@ -72,21 +72,78 @@
 
 <div class="container">
 
-  <!-- Rename Files Tool -->
+    <!-- JSON Formatter -->
   <div class="tool">
     <div class="tool-left">
-      <h2>Rename Files</h2>
-      <p>Rename multiple files instantly.</p>
-      <a class="button" href="tools/rename-files/">
+      <h2>JSON Formatter</h2>
+      <p>Format and validate JSON instantly.</p>
+      <a class="button" href="tools/json-formatter/">
         <span>Open Tool</span>
       </a>
     </div>
 
-    <div class="tool-right">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <div class="tool-right visual">
+      <div class="json-visual">
+        <div class="json-line line1"></div>
+        <div class="json-line line2"></div>
+        <div class="json-line line3"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Password Generator -->
+   <div class="tool">
+    <div class="tool-left">
+      <h2>Password Generator</h2>
+      <p>Generate secure random passwords instantly.</p>
+      <a class="button" href="tools/password-generator/">
+        <span>Open Tool</span>
+      </a>
+    </div>
+
+    <div class="tool-right visual">
+      <div class="password-visual">
+        <div class="text" id="passwordAnim">**************</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PDF Merge Tool -->
+  <div class="tool">
+    <div class="tool-left">
+      <h2>PDF Merge</h2>
+      <p>Combine multiple PDF files into one.</p>
+      <a class="button" href="tools/pdf-merge/">
+        <span>Open Tool</span>
+      </a>
+    </div>
+
+    <div class="tool-right visual">
+      <div class="merge-visual">
+        <div class="pdf-box left">PDF</div>
+        <div class="pdf-box right">PDF</div>
+        <div class="pdf-box result">PDF</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image to PDF -->
+  <div class="tool">
+    <div class="tool-left">
+      <h2>Image to PDF</h2>
+      <p>Convert multiple images into a single PDF file.</p>
+      <a class="button" href="tools/image-to-pdf/">
+        <span>Open Tool</span>
+      </a>
+    </div>
+
+    <div class="tool-right visual">
+      <div class="flip-container">
+        <div class="flip-card">
+          <div class="flip-front">IMG</div>
+          <div class="flip-back">PDF</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -182,64 +239,24 @@
     </div>
   </div>
 
-  <!-- Image to PDF -->
+  <!-- Rename Files Tool -->
   <div class="tool">
     <div class="tool-left">
-      <h2>Image to PDF</h2>
-      <p>Convert multiple images into a single PDF file.</p>
-      <a class="button" href="tools/image-to-pdf/">
+      <h2>Rename Files</h2>
+      <p>Rename multiple files instantly.</p>
+      <a class="button" href="tools/rename-files/">
         <span>Open Tool</span>
       </a>
     </div>
 
-    <div class="tool-right visual">
-      <div class="flip-container">
-        <div class="flip-card">
-          <div class="flip-front">IMG</div>
-          <div class="flip-back">PDF</div>
-        </div>
-      </div>
+    <div class="tool-right">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   </div>
-
-    <!-- PDF Merge Tool -->
-  <div class="tool">
-    <div class="tool-left">
-      <h2>PDF Merge</h2>
-      <p>Combine multiple PDF files into one.</p>
-      <a class="button" href="tools/pdf-merge/">
-        <span>Open Tool</span>
-      </a>
-    </div>
-
-    <div class="tool-right visual">
-      <div class="merge-visual">
-        <div class="pdf-box left">PDF</div>
-        <div class="pdf-box right">PDF</div>
-        <div class="pdf-box result">PDF</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- JSON Formatter -->
-  <div class="tool">
-  <div class="tool-left">
-    <h2>JSON Formatter</h2>
-    <p>Format and validate JSON instantly.</p>
-    <a class="button" href="tools/json-formatter/">
-      <span>Open Tool</span>
-    </a>
-  </div>
-
-  <div class="tool-right visual">
-    <div class="json-visual">
-      <div class="json-line line1"></div>
-      <div class="json-line line2"></div>
-      <div class="json-line line3"></div>
-    </div>
-  </div>
-</div>
-
+   
 </div>
 
 <div id="no-results" style="display:none; text-align:center; margin-top:40px; color:rgba(255,255,255,0.6);">
@@ -272,7 +289,7 @@
 
   <h2>Supported Features</h2>
   <p>
-    Image to PDF, image compression, image resizing, format conversion
+    JSON formatter, password generator, Image to PDF, image compression, image resizing, format conversion
     (JPG, PNG, WEBP), and batch file renaming.
   </p>
 
@@ -280,3 +297,5 @@
 
 </body>
 </html>
+
+<script src="/tools/password-generator/scriptAnim.js"></script>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Strong Password Generator - Secure Random Passwords</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../../assets/favicon.png">
+
+  <meta name="description" content="Generate strong and secure passwords instantly. Customize length, symbols and strength. Free password generator.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://nibano.github.io/tools/password-generator/">
+
+  <meta property="og:title" content="Strong Password Generator">
+  <meta property="og:description" content="Create secure passwords instantly with custom settings.">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    #passwordOutput {
+      font-size: 18px;
+      letter-spacing: 2px;
+      background: rgba(0,0,0,0.4);
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      word-break: break-all;
+    }
+
+    .strength {
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body class="tool-page">
+
+<header class="tool-header">
+  <a href="../../index.html" class="logo">NBN Tools</a>
+  <h1>Password Generator</h1>
+</header>
+
+<div class="container">
+  <div class="card">
+
+    <div class="tool-seo">
+      <h1>Strong Password Generator</h1>
+      <p>
+        Generate secure passwords instantly. Customize length, symbols and complexity.
+      </p>
+      <p>
+        Everything runs locally. No passwords are stored or sent anywhere.
+      </p>
+    </div>
+
+    <label>Password length: <span id="lengthValue">12</span></label>
+    <input type="range" id="length" min="4" max="64" value="12">
+
+    <div class="controls">
+      <label><input type="checkbox" id="letters" checked> Letters</label>
+      <label><input type="checkbox" id="numbers" checked> Numbers</label>
+      <label><input type="checkbox" id="symbols" checked> Symbols</label>
+    </div>
+
+    <div id="passwordOutput"></div>
+    <div class="strength" id="strength"></div>
+
+    <div class="actions">
+      <button id="generate">Generate</button>
+      <button id="copy">Copy</button>
+      <button id="download">Download</button>
+    </div>
+
+  </div>
+</div>
+
+<div class="seo-content">
+  <h2>Create Strong and Secure Passwords</h2>
+  <p>
+    Generate highly secure passwords tailored to your needs. Adjust length, include symbols, numbers, and letters, and instantly create strong credentials for any account or service.
+  </p>
+
+  <h2>Enhance Your Online Security</h2>
+  <p>
+    Protect your data with long, complex passwords that are resistant to brute‑force attacks. Ideal for securing emails, social media accounts, cloud services, and sensitive applications.
+  </p>
+
+  <h2>Fast, Private and Fully Local</h2>
+  <p>
+    All password generation happens directly in your browser. No data is stored, transmitted, or uploaded — ensuring complete privacy and security.
+  </p>
+
+  <h2>Perfect for Personal and Professional Use</h2>
+  <p>
+    Whether you're managing multiple accounts, setting up new devices, or following cybersecurity best practices, this tool provides reliable, high‑entropy passwords in seconds.
+  </p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

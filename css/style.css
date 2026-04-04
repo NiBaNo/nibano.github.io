@@ -1094,3 +1094,46 @@ select {
     opacity: 1;
   }
 }
+
+.password-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 14px;
+  font-family: monospace;
+}
+
+.password-visual .text {
+  padding: 0;        /* eliminem el requadre */
+  background: none;  /* eliminem el fons */
+  border-radius: 0;
+}
+
+#passwordAnim {
+  display: inline-flex;
+  gap: 2px;
+  font-family: monospace;
+  font-size: 20px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #ffffff, #aab6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#passwordAnim span {
+  opacity: 0;
+  display: inline-block;
+  background: linear-gradient(90deg, #ffffff, #aab6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: matrixDrop 1.0s ease-out forwards;
+}
+
+@keyframes matrixDrop {
+  0% { opacity: 0; transform: translateY(-15px); filter: blur(4px); }
+  60% { opacity: 1; transform: translateY(0); filter: blur(0); }
+  100% { opacity: 1; }
+}
+
+
